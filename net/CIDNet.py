@@ -72,7 +72,7 @@ class CIDNet(nn.Module):
     def forward(self, x):
         dtypes = x.dtype
         hvi = self.trans.OKLabT(x)
-        i = hvi[:,2,:,:].unsqueeze(1).to(dtypes)
+        i = hvi[:,0,:,:].unsqueeze(1).to(dtypes)
         # low
         i_enc0 = self.IE_block0(i)
         i_enc1 = self.IE_block1(i_enc0)
